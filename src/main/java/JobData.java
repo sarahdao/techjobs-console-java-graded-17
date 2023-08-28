@@ -93,28 +93,28 @@ public class JobData {
         // Load data, if not already loaded
         loadData();
 
-        ArrayList<HashMap<String, String>> matchingValue = new ArrayList<>();
+        ArrayList<HashMap<String, String>> searchResult = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
             boolean foundValue = false;
 
             for (String key : row.keySet()) {
-                String cellValue = row.get(key);
+                String aValue = row.get(key);
 
-                if (cellValue != null && cellValue.toLowerCase().contains(value.toLowerCase())) {
+                if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {
                     foundValue = true;
                     break; //
                 }
             }
             if (foundValue) {
-                matchingValue.add(row);
+                searchResult.add(row);
             }
         }
 
-        if (matchingValue.isEmpty()) {
+        if (searchResult.isEmpty()) {
             System.out.println("No Results");
         }
-        return matchingValue;
+        return searchResult;
     }
 
 
