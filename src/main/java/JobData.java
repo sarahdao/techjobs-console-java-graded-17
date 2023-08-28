@@ -110,10 +110,6 @@ public class JobData {
                 searchResult.add(row);
             }
         }
-
-        if (searchResult.isEmpty()) {
-            System.out.println("No Results");
-        }
         return searchResult;
     }
 
