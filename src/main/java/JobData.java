@@ -90,8 +90,7 @@ public class JobData {
      * @return      List of all jobs with at least one field containing the value
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
-
-        // load data, if not already loaded
+        // Load data, if not already loaded
         loadData();
 
         ArrayList<HashMap<String, String>> matchingValue = new ArrayList<>();
@@ -104,17 +103,20 @@ public class JobData {
 
                 if (cellValue != null && cellValue.toLowerCase().contains(value.toLowerCase())) {
                     foundValue = true;
-                    break;
+                    break; //
                 }
             }
-
             if (foundValue) {
                 matchingValue.add(row);
             }
         }
 
+        if (matchingValue.isEmpty()) {
+            System.out.println("No Results");
+        }
         return matchingValue;
     }
+
 
     /**
      * Read in data from a CSV file and store it in a list
